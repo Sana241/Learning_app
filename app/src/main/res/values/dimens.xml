@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="standard_padding">16dp</dimen>
+    <dimen name="small_padding">8dp</dimen>
+    <dimen name="standard_margin">16dp</dimen>
+    <dimen name="change_color_size">14sp</dimen>
+    <dimen name="change_colortxt_size">16sp</dimen>
+    <dimen name="margin_imageViews">24dp</dimen>
+    <dimen name="textDesc_size">20sp</dimen>
+    <dimen name="half_actionbar">30dp</dimen>
+    <dimen name="nav_header">250dp</dimen>
+    <dimen name="min_padding">2dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+</resources>

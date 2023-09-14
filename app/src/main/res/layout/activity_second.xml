@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".secondActivity">
+    <include
+        android:id="@+id/main_activity_toolbar"
+        layout="@layout/toolbar" />
+
+    <TextView
+        android:id="@+id/heading_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/standard_margin"
+
+        android:gravity="center_horizontal"
+        android:padding="@dimen/standard_padding"
+        android:text="@string/driong_dessert"
+        android:textAlignment="center"
+        android:textSize="@dimen/change_colortxt_size"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/main_activity_toolbar" />
+
+    <ImageView
+        android:id="@+id/dount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_imageViews"
+        android:layout_marginLeft="@dimen/margin_imageViews"
+        android:layout_marginTop="@dimen/margin_imageViews"
+        android:contentDescription="@string/Dount_desc"
+        android:onClick="getDount"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/heading_name"
+        app:srcCompat="@drawable/donut_circle"
+        tools:ignore="ImageContrastCheck,UsingOnClickInXml,DuplicateSpeakableTextCheck" />
+
+    <TextView
+        android:id="@+id/dount_desc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_imageViews"
+        android:layout_marginTop="@dimen/margin_imageViews"
+        android:padding="@dimen/standard_padding"
+        android:text="@string/Dount_desc"
+        app:layout_constrainedWidth="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/dount"
+        app:layout_constraintTop_toTopOf="@+id/dount" />
+
+    <ImageView
+        android:id="@+id/froyo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_imageViews"
+        android:layout_marginTop="@dimen/margin_imageViews"
+        android:contentDescription="@string/froyo_desc"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dount"
+        app:srcCompat="@drawable/froyo_circle" />
+
+
+    <TextView
+        android:id="@+id/froyo_desc"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_imageViews"
+        android:layout_marginTop="@dimen/margin_imageViews"
+        android:padding="@dimen/standard_padding"
+        android:text="@string/froyo_desc"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/froyo"
+        app:layout_constraintTop_toTopOf="@+id/froyo" />
+
+    <ImageView
+        android:id="@+id/icecream"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_imageViews"
+        android:layout_marginTop="@dimen/margin_imageViews"
+        android:contentDescription="@string/icecream_desc"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/froyo"
+        app:srcCompat="@drawable/icecream_circle" />
+
+    <TextView
+        android:id="@+id/icecream_desc"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_imageViews"
+        android:layout_marginTop="@dimen/margin_imageViews"
+        android:padding="@dimen/standard_padding"
+        android:text="@string/icecream_desc"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/icecream"
+        app:layout_constraintTop_toTopOf="@+id/icecream" />
+
+    <TextView
+        android:id="@+id/change_color_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/standard_margin"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="24dp"
+        android:gravity="center_horizontal"
+        android:padding="@dimen/standard_padding"
+        android:text="@string/hello_world"
+        android:textAlignment="center"
+        android:textSize="@dimen/change_colortxt_size"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/color_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextPhone" />
+
+    <Button
+        android:id="@+id/color_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/standard_margin"
+        android:background="@color/teal_700"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:padding="@dimen/small_padding"
+        android:text="@string/change_color"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/white"
+        android:textSize="@dimen/change_color_size"
+        app:layout_constraintBaseline_toBaselineOf="@+id/change_color_txt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/change_color_txt" />
+
+    <EditText
+        android:id="@+id/editTextPhone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:hint="@string/phone_Number"
+        android:inputType="phone"
+        android:minHeight="48dp"
+        android:padding="@dimen/standard_padding"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/icecream" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/Select"
+        android:minHeight="48dp"
+        android:prompt="@string/spinner_prompt"
+        app:layout_constraintBottom_toBottomOf="@+id/editTextPhone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/editTextPhone"
+        app:layout_constraintTop_toTopOf="@+id/editTextPhone" />
+
+    <Button
+        android:id="@+id/fragments"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_imageViews"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="@dimen/margin_imageViews"
+        android:layout_marginRight="@dimen/margin_imageViews"
+        android:layout_marginBottom="24dp"
+        android:onClick="launchFragments"
+        android:background="@color/teal_700"
+        android:padding="@dimen/standard_padding"
+        android:text="@string/fragment_btn_txt"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/change_color_txt"
+        app:layout_constraintVertical_bias="0.472" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

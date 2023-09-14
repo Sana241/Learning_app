@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/nav_header"
+    android:background="@color/teal_700"
+    android:padding="@dimen/standard_padding">
+    <ImageView
+        android:id="@+id/nav_header_imageview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/small_padding"
+        android:src="@drawable/icecream_circle"
+        android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
+
+    <TextView
+        android:id="@+id/nav_heading_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/small_padding"
+        android:padding="@dimen/min_padding"
+        android:text="@string/nav_header_heading"
+        android:textColor="@color/white"
+        android:textSize="@dimen/change_colortxt_size"
+        android:textStyle="bold" />
+    <TextView
+        android:id="@+id/nav_sunheading_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/min_padding"
+        android:layout_marginLeft="@dimen/small_padding"
+        android:text="@string/nav_header_emailtxt"
+        android:textColor="@color/white"
+        android:textSize="@dimen/change_colortxt_size"
+        />
+</LinearLayout>

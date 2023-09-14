@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".cartFragment">
+
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/margin_imageViews"
+        android:background="@color/teal_700"
+        android:textColor="@color/white"
+        android:padding="@dimen/standard_padding"
+        android:text="@string/Cart_fragment_txt"
+        android:id="@+id/cart_fragment_txt"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="@dimen/change_colortxt_size"
+        android:textStyle="bold|italic" />
+
+</FrameLayout>
