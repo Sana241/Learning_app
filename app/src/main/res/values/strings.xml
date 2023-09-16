@@ -2,7 +2,7 @@
     <string name="app_name">Cafe Desserts</string>
     <string name="change_color">Change Color</string>
     <string name="hello_world">Change color of this text.</string>
-    <string name="driong_dessert">Cafe Desserts</string>
+    <string name="cafe_dessert">Cafe Desserts</string>
     <string name="Dount_desc">Donuts are glazed and sprinkled with candy.</string>
     <string name="icecream_desc">Ice cream sandwiches have chocolate wafers and vanilla filling.</string>
     <string name="froyo_desc">FroYo is premium self-serve frozen yogurt.</string>
@@ -31,7 +31,7 @@
     <string name="nav_send">Send</string>
     <string name="nav_header_heading">Person Name</string>
     <string name="nav_header_emailtxt">name123@gmail.com</string>
-    <string name="navigation_drawer_open">Open anvigation drawer</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">close navigation drawer</string>
     <string name="title_activity_main_activity2basic">MainActivity2basic</string>
     <!-- Strings used for fragments for navigation -->
@@ -49,8 +49,7 @@
     <string name="profile_setting">Profile Setting</string>
     <string name="about_us">About Us</string>
     <string name="title_activity_main2">MainActivity2</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
     <string name="first_fragment">First Tab Fragment</string>
     <string name="second_fragment">Second Tab Fragment</string>
     <string name="third_fragment">Third Tab Fragment</string>

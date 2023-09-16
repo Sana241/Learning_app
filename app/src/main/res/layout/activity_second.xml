@@ -18,7 +18,7 @@
 
         android:gravity="center_horizontal"
         android:padding="@dimen/standard_padding"
-        android:text="@string/driong_dessert"
+        android:text="@string/cafe_dessert"
         android:textAlignment="center"
         android:textSize="@dimen/change_colortxt_size"
         android:textStyle="bold"
