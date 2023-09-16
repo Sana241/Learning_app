@@ -1,26 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="wrap_content"
     android:background="@color/white"
     tools:context=".homeFragment">
 
+
     <Button
         android:id="@+id/home_fragment_btn"
-        android:layout_width="wrap_content"
-        android:background="@color/teal_700"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="@dimen/margin_imageViews"
-        android:padding="@dimen/standard_padding"
+        style="@style/textview_style"
         android:text="@string/home_fragment_txt"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="@color/white"
-        android:textSize="@dimen/change_colortxt_size"
-        android:textStyle="bold"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="97dp" />
+        android:layout_gravity="end"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical">
+
+    </androidx.recyclerview.widget.RecyclerView>
 
 </FrameLayout>

@@ -7,19 +7,10 @@
     tools:context=".profileFragment">
 
     <TextView
-
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="@dimen/margin_imageViews"
+        style="@style/textview_style"
         android:text="@string/profile_fragment_txt"
         android:id="@+id/profile_fragment_txt"
-        android:background="@color/teal_700"
-        android:textColor="@color/white"
-        android:padding="@dimen/standard_padding"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textSize="@dimen/change_colortxt_size"
-        android:textStyle="bold|italic" />
+       />
 
 
 </FrameLayout>
