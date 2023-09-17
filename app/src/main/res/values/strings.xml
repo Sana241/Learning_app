@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Cafe Desserts</string>
+    <string name="app_name">Step to Learning</string>
     <string name="change_color">Change Color</string>
     <string name="hello_world">Change color of this text.</string>
     <string name="cafe_dessert">Cafe Desserts</string>
@@ -18,12 +18,11 @@
         <item>Other</item>
     </string-array>
 
-    <string name="profile_fragment_txt">Profile Fragment</string>
     <string name="fragment_btn_txt">Tabs Fragments</string>
     <string name="home_fragment_txt">Welcome to Home Screen</string>
     <string name="Cart_fragment_txt">Add to Cart</string>
-    <string name="nav_Home">Home</string>
-    <string name="nav_Profile">Profile</string>
+    <string name="nav_recyclerview">Recycler View</string>
+    <string name="nav_score_team">ScoreKeeper</string>
     <string name="nav_favorite">Favorite</string>
     <string name="nav_cart">Cart</string>
     <string name="communication_nav_section">Communication</string>
@@ -34,11 +33,7 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">close navigation drawer</string>
     <string name="title_activity_main_activity2basic">MainActivity2basic</string>
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
+
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment</string>
@@ -53,4 +48,9 @@
     <string name="first_fragment">First Tab Fragment</string>
     <string name="second_fragment">Second Tab Fragment</string>
     <string name="third_fragment">Third Tab Fragment</string>
+    <string name="plus_button_description">Plus Button to increase score</string>
+    <string name="initial_count">0</string>
+    <string name="minus_button_description">minus button to decrease score</string>
+    <string name="team_2">Team 2</string>
+    <string name="team_1">Team 1</string>
 </resources>

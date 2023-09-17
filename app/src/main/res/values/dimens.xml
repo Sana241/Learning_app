@@ -14,4 +14,5 @@
     <dimen name="card_corner_radius">6dp</dimen>
     <dimen name="card_elevation">4dp</dimen>
     <dimen name="min_margin">4dp</dimen>
+    <dimen name="button_size">70dp</dimen>
 </resources>

@@ -19,7 +19,7 @@ int noTabs;
             case 0:
                 return new homeFragment();
             case 1:
-                return new profileFragment();
+                return new scoreKeeperFragment();
             case 2:
                 return new cartFragment();
             default:

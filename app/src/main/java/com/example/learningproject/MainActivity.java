@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
             case R.id.nav_profile:
                 getSupportFragmentManager().beginTransaction().setReorderingAllowed(true).
-                        replace(R.id.main_fragments_container, new profileFragment()).commit();
+                        replace(R.id.main_fragments_container, new scoreKeeperFragment()).commit();
                 break;
             case R.id.nav_cart:
                 getSupportFragmentManager().beginTransaction().setReorderingAllowed(true).

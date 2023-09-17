@@ -6,12 +6,12 @@
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_home"
-            android:title="@string/nav_Home"
+            android:title="@string/nav_recyclerview"
             android:orderInCategory="5"/>
         <item
             android:id="@+id/nav_profile"
             android:icon="@drawable/ic_profile"
-            android:title="@string/nav_Profile"
+            android:title="@string/nav_score_team"
             android:orderInCategory="10"/>
         <item
             android:id="@+id/nav_favorite"
