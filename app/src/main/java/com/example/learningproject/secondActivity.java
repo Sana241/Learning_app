@@ -22,11 +22,12 @@ import android.widget.Toast;
 
 import java.util.Random;
 
-public class secondActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
+public class secondActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+    private static final String TEXT_STATE = "froyo_text";
     Spinner spinner;
-    private TextView mTextView, dount_desc;
-    private Button btnChangeColor, btnFragments;
-    private String[] mColorArray = {"red", "pink", "purple", "deep_purple",
+    private TextView textView, dountDescTextView, froyoDescTextView;
+    private Button buttonChangeColor, buttonFragments;
+    private String[] colorArray = {"red", "pink", "purple", "deep_purple",
             "indigo", "blue", "light_blue", "cyan", "teal", "green",
             "light_green", "lime", "yellow", "amber", "orange", "deep_orange",
             "brown", "grey", "blue_grey", "black"};
@@ -45,8 +46,8 @@ public class secondActivity extends AppCompatActivity implements AdapterView.OnI
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
-
-        btnFragments = findViewById(R.id.fragments);
+        froyoDescTextView = findViewById(R.id.froyo_desc);
+        buttonFragments = findViewById(R.id.fragments);
 
         //Spinner
         spinner = findViewById(R.id.spinner);
@@ -59,28 +60,32 @@ public class secondActivity extends AppCompatActivity implements AdapterView.OnI
             spinner.setAdapter(adapter);
             spinner.setOnItemSelectedListener(this);
         }
-        //INstance Saved for Tite/Heading TextView
-        mTextView = findViewById(R.id.change_color_txt);
+        textView = findViewById(R.id.change_color_txt);
         if (savedInstanceState != null) {
-            mTextView.setTextColor(savedInstanceState.getInt("color"));
+            textView.setTextColor(savedInstanceState.getInt("color"));
+            froyoDescTextView.setText(savedInstanceState.getString(TEXT_STATE));
         }
 
         //Change Color of text with button
-        btnChangeColor = findViewById(R.id.color_button);
-        btnChangeColor.setOnClickListener(new View.OnClickListener() {
+        buttonChangeColor = findViewById(R.id.color_button);
+        buttonChangeColor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Random random = new Random();
-                String colorName = mColorArray[random.nextInt(20)];
+                String colorName = colorArray[random.nextInt(20)];
                 int colorRes = getResources().getIdentifier(colorName,
                         "color", getApplicationContext().getPackageName());
                 int colorID = ContextCompat.getColor(secondActivity.this, colorRes);
-                mTextView.setTextColor(colorID);
+                textView.setTextColor(colorID);
+
+
+                froyoDescTextView.setText(R.string.napping_text);
+                new AsyncTaskClass(froyoDescTextView).execute();
             }
         });
 
-        dount_desc = findViewById(R.id.dount_desc);
-        registerForContextMenu(dount_desc);
+        dountDescTextView = findViewById(R.id.dount_desc);
+        registerForContextMenu(dountDescTextView);
     }
 
     @Override
@@ -114,7 +119,8 @@ public class secondActivity extends AppCompatActivity implements AdapterView.OnI
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putInt("color", mTextView.getCurrentTextColor());
+        outState.putInt("color", textView.getCurrentTextColor());
+        outState.putString(TEXT_STATE,froyoDescTextView.getText().toString());
     }
 
     public void getDount(View view) {

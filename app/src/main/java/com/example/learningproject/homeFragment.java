@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -41,17 +42,26 @@ public class homeFragment extends Fragment {
         recyclerView = view.findViewById(R.id.recyclerview);
         recyclerAdapter recyclerAdapter = new recyclerAdapter(getActivity(), linkedList);
         recyclerView.setAdapter(recyclerAdapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        int gridColumnCount=getResources().getInteger(R.integer.grid_column_count);
+        recyclerView.setLayoutManager(new GridLayoutManager(getActivity(),gridColumnCount));
         fragmentButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getActivity(), secondActivity.class));
             }
         });
-
+      int swipeDirections,dragDirections;
+      if(gridColumnCount>1){
+          swipeDirections=0;
+          dragDirections=ItemTouchHelper.UP | ItemTouchHelper.DOWN
+                  |ItemTouchHelper.LEFT|ItemTouchHelper.RIGHT;
+      }else{
+          swipeDirections=ItemTouchHelper.UP | ItemTouchHelper.DOWN
+                  | ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT;
+          dragDirections=ItemTouchHelper.UP | ItemTouchHelper.DOWN;
+      }
         ItemTouchHelper helper = new ItemTouchHelper(new ItemTouchHelper.SimpleCallback
-                (ItemTouchHelper.UP | ItemTouchHelper.DOWN, ItemTouchHelper.UP | ItemTouchHelper.DOWN
-                        | ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+                (dragDirections,swipeDirections ) {
             @Override
             public boolean onMove(@NonNull RecyclerView recyclerView,
                                   @NonNull RecyclerView.ViewHolder viewHolder,
@@ -60,7 +70,6 @@ public class homeFragment extends Fragment {
                 int moveToPosition = target.getAdapterPosition();
                 if (linkedList != null && moveFromPosition >= 0
                         && moveToPosition >= 0) {
-                    // Swap the items in your linkedList
                     Collections.swap(linkedList, moveFromPosition, moveToPosition);
                     if (recyclerAdapter != null) {
                         recyclerAdapter.notifyItemMoved(moveFromPosition,
