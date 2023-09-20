@@ -21,7 +21,8 @@ import java.util.LinkedList;
 
 public class homeFragment extends Fragment {
 
-    public final LinkedList<String> linkedList = new LinkedList<>();
+    private static final String LINKED_LIST = "linked_list";
+    public LinkedList<String> linkedList = new LinkedList<>();
     Button fragmentButton;
     RecyclerView recyclerView;
 
@@ -48,10 +49,9 @@ public class homeFragment extends Fragment {
             }
         });
 
-
         ItemTouchHelper helper = new ItemTouchHelper(new ItemTouchHelper.SimpleCallback
-                (ItemTouchHelper.UP | ItemTouchHelper.DOWN,ItemTouchHelper.UP | ItemTouchHelper.DOWN
-                        |ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+                (ItemTouchHelper.UP | ItemTouchHelper.DOWN, ItemTouchHelper.UP | ItemTouchHelper.DOWN
+                        | ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
             @Override
             public boolean onMove(@NonNull RecyclerView recyclerView,
                                   @NonNull RecyclerView.ViewHolder viewHolder,
@@ -63,7 +63,8 @@ public class homeFragment extends Fragment {
                     // Swap the items in your linkedList
                     Collections.swap(linkedList, moveFromPosition, moveToPosition);
                     if (recyclerAdapter != null) {
-                        recyclerAdapter.notifyItemMoved(moveFromPosition, moveToPosition);
+                        recyclerAdapter.notifyItemMoved(moveFromPosition,
+                                moveToPosition);
                     }
                     return true;
                 }
@@ -78,6 +79,19 @@ public class homeFragment extends Fragment {
             }
         });
         helper.attachToRecyclerView(recyclerView);
+        if (savedInstanceState != null) {
+           LinkedList newLinkedList = (LinkedList<String>) savedInstanceState.
+                    getSerializable(LINKED_LIST);
+            linkedList.clear();
+            linkedList.addAll(newLinkedList);
+            recyclerAdapter.notifyDataSetChanged();
+        }
         return view;
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putSerializable(LINKED_LIST, linkedList);
     }
 }
