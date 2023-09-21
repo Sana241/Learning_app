@@ -17,11 +17,11 @@ int noTabs;
     public Fragment getItem(int position) {
         switch (position) {
             case 0:
-                return new homeFragment();
+                return new HomeFragment();
             case 1:
-                return new scoreKeeperFragment();
+                return new ScoreKeeperFragment();
             case 2:
-                return new cartFragment();
+                return new CartFragment();
             default:
                 return null;
         }

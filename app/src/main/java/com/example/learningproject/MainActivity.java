@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction().setReorderingAllowed(true).
-                    replace(R.id.main_fragments_container, new homeFragment()).commit();
+                    replace(R.id.main_fragments_container, new HomeFragment()).commit();
             navigationView.setCheckedItem(R.id.nav_home);
         }
     }
@@ -54,19 +54,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         switch (item.getItemId()) {
             case R.id.nav_home:
                 getSupportFragmentManager().beginTransaction().setReorderingAllowed(true).
-                        replace(R.id.main_fragments_container, new homeFragment()).commit();
+                        replace(R.id.main_fragments_container, new HomeFragment()).commit();
                 break;
             case R.id.nav_profile:
                 getSupportFragmentManager().beginTransaction().setReorderingAllowed(true).
-                        replace(R.id.main_fragments_container, new scoreKeeperFragment()).commit();
+                        replace(R.id.main_fragments_container, new ScoreKeeperFragment()).commit();
                 break;
             case R.id.nav_cart:
                 getSupportFragmentManager().beginTransaction().setReorderingAllowed(true).
-                        replace(R.id.main_fragments_container, new cartFragment()).commit();
+                        replace(R.id.main_fragments_container, new CartFragment()).commit();
                 break;
             case R.id.nav_favorite:
                 getSupportFragmentManager().beginTransaction().setReorderingAllowed(true).
-                        replace(R.id.main_fragments_container, new cartFragment()).commit();
+                        replace(R.id.main_fragments_container, new CartFragment()).commit();
                 break;
             case R.id.nav_send:
                 Toast.makeText(this, "send", Toast.LENGTH_SHORT).show();

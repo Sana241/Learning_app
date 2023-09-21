@@ -1,33 +1,34 @@
 package com.example.learningproject;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.ItemTouchHelper;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.Toast;
+import android.widget.TextView;
 
-import java.util.Collection;
+import java.lang.ref.WeakReference;
 import java.util.Collections;
 import java.util.LinkedList;
+import java.util.Random;
 
-public class homeFragment extends Fragment {
+public class HomeFragment extends Fragment {
 
     private static final String LINKED_LIST = "linked_list";
     public LinkedList<String> linkedList = new LinkedList<>();
     Button fragmentButton;
     RecyclerView recyclerView;
 
-    public homeFragment() {
+    public HomeFragment() {
     }
 
     @Override
@@ -40,28 +41,28 @@ public class homeFragment extends Fragment {
         }
         fragmentButton = view.findViewById(R.id.home_fragment_btn);
         recyclerView = view.findViewById(R.id.recyclerview);
-        recyclerAdapter recyclerAdapter = new recyclerAdapter(getActivity(), linkedList);
-        recyclerView.setAdapter(recyclerAdapter);
-        int gridColumnCount=getResources().getInteger(R.integer.grid_column_count);
-        recyclerView.setLayoutManager(new GridLayoutManager(getActivity(),gridColumnCount));
+        HomeRecyclerAdapter HomeRecyclerAdapter = new HomeRecyclerAdapter(getActivity(), linkedList);
+        recyclerView.setAdapter(HomeRecyclerAdapter);
+        int gridColumnCount = getResources().getInteger(R.integer.grid_column_count);
+        recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), gridColumnCount));
         fragmentButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getActivity(), secondActivity.class));
+                startActivity(new Intent(getActivity(), SecondActivity.class));
             }
         });
-      int swipeDirections,dragDirections;
-      if(gridColumnCount>1){
-          swipeDirections=0;
-          dragDirections=ItemTouchHelper.UP | ItemTouchHelper.DOWN
-                  |ItemTouchHelper.LEFT|ItemTouchHelper.RIGHT;
-      }else{
-          swipeDirections=ItemTouchHelper.UP | ItemTouchHelper.DOWN
-                  | ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT;
-          dragDirections=ItemTouchHelper.UP | ItemTouchHelper.DOWN;
-      }
+        int swipeDirections, dragDirections;
+        if (gridColumnCount > 1) {
+            swipeDirections = 0;
+            dragDirections = ItemTouchHelper.UP | ItemTouchHelper.DOWN
+                    | ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT;
+        } else {
+            swipeDirections = ItemTouchHelper.UP | ItemTouchHelper.DOWN
+                    | ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT;
+            dragDirections = ItemTouchHelper.UP | ItemTouchHelper.DOWN;
+        }
         ItemTouchHelper helper = new ItemTouchHelper(new ItemTouchHelper.SimpleCallback
-                (dragDirections,swipeDirections ) {
+                (dragDirections, swipeDirections) {
             @Override
             public boolean onMove(@NonNull RecyclerView recyclerView,
                                   @NonNull RecyclerView.ViewHolder viewHolder,
@@ -71,8 +72,8 @@ public class homeFragment extends Fragment {
                 if (linkedList != null && moveFromPosition >= 0
                         && moveToPosition >= 0) {
                     Collections.swap(linkedList, moveFromPosition, moveToPosition);
-                    if (recyclerAdapter != null) {
-                        recyclerAdapter.notifyItemMoved(moveFromPosition,
+                    if (HomeRecyclerAdapter != null) {
+                        HomeRecyclerAdapter.notifyItemMoved(moveFromPosition,
                                 moveToPosition);
                     }
                     return true;
@@ -84,16 +85,16 @@ public class homeFragment extends Fragment {
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
                 int currentPosition = viewHolder.getAdapterPosition();
                 linkedList.remove(currentPosition);
-                recyclerAdapter.notifyItemRemoved(currentPosition);
+                HomeRecyclerAdapter.notifyItemRemoved(currentPosition);
             }
         });
         helper.attachToRecyclerView(recyclerView);
         if (savedInstanceState != null) {
-           LinkedList newLinkedList = (LinkedList<String>) savedInstanceState.
+            LinkedList newLinkedList = (LinkedList<String>) savedInstanceState.
                     getSerializable(LINKED_LIST);
             linkedList.clear();
             linkedList.addAll(newLinkedList);
-            recyclerAdapter.notifyDataSetChanged();
+            HomeRecyclerAdapter.notifyDataSetChanged();
         }
         return view;
     }
@@ -104,3 +105,4 @@ public class homeFragment extends Fragment {
         outState.putSerializable(LINKED_LIST, linkedList);
     }
 }
+

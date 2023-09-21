@@ -7,6 +7,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.ContextMenu;
 import android.view.Menu;
@@ -20,9 +21,10 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.lang.ref.WeakReference;
 import java.util.Random;
 
-public class secondActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class SecondActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     private static final String TEXT_STATE = "froyo_text";
     Spinner spinner;
     private TextView textView, dountDescTextView, froyoDescTextView;
@@ -52,7 +54,7 @@ public class secondActivity extends AppCompatActivity implements AdapterView.OnI
         //Spinner
         spinner = findViewById(R.id.spinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
-                secondActivity.this, R.array.spinner_item,
+                SecondActivity.this, R.array.spinner_item,
                 androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
         adapter.setDropDownViewResource(
                 androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
@@ -75,7 +77,7 @@ public class secondActivity extends AppCompatActivity implements AdapterView.OnI
                 String colorName = colorArray[random.nextInt(20)];
                 int colorRes = getResources().getIdentifier(colorName,
                         "color", getApplicationContext().getPackageName());
-                int colorID = ContextCompat.getColor(secondActivity.this, colorRes);
+                int colorID = ContextCompat.getColor(SecondActivity.this, colorRes);
                 textView.setTextColor(colorID);
 
 
@@ -141,7 +143,7 @@ public class secondActivity extends AppCompatActivity implements AdapterView.OnI
     }
 
     public void launchFragments(View view) {
-        startActivity(new Intent(secondActivity.this, tabActivity.class));
+        startActivity(new Intent(SecondActivity.this, TabActivity.class));
     }
 
     @Override
@@ -169,5 +171,30 @@ public class secondActivity extends AppCompatActivity implements AdapterView.OnI
         }
 
         return super.onOptionsItemSelected(item);
+    }
+}
+class AsyncTaskClass extends AsyncTask<Void, Void, String> {
+    private WeakReference<TextView> textView;
+
+    AsyncTaskClass(TextView txtView) {
+        textView = new WeakReference<>(txtView);
+    }
+
+
+    @Override
+    protected String doInBackground(Void... voids) {
+        Random random = new Random();
+        int secTime = (random.nextInt(11)) * 300;
+        try {
+            Thread.sleep(secTime);
+        } catch (InterruptedException interruptedException) {
+            interruptedException.printStackTrace();
+        }
+        return "Awake from sleep after " + secTime + " milliSeconds.";
+    }
+
+    @Override
+    protected void onPostExecute(String result) {
+        textView.get().setText(result);
     }
 }

@@ -11,7 +11,7 @@ import android.view.MenuItem;
 
 import com.google.android.material.tabs.TabLayout;
 
-public class tabActivity extends AppCompatActivity {
+public class TabActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

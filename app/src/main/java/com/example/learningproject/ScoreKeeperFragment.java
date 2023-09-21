@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class scoreKeeperFragment extends Fragment {
+public class ScoreKeeperFragment extends Fragment {
     static final String STATE_SCORE_1 = "Team 1 Score";
     static final String STATE_SCORE_2 = "Team 2 Score";
     ImageView imgT1Minus, imgT2Minus, imgT1Plus, imgT2Plus;
@@ -20,7 +20,7 @@ public class scoreKeeperFragment extends Fragment {
     private TextView scoreText1;
     private TextView scoreText2;
 
-    public scoreKeeperFragment() {
+    public ScoreKeeperFragment() {
     }
 
     @Override
