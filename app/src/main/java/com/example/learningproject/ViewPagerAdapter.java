@@ -21,7 +21,7 @@ int noTabs;
             case 1:
                 return new ScoreKeeperFragment();
             case 2:
-                return new CartFragment();
+                return new BookSearchFragment();
             default:
                 return null;
         }

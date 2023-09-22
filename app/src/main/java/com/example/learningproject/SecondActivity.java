@@ -173,28 +173,3 @@ public class SecondActivity extends AppCompatActivity implements AdapterView.OnI
         return super.onOptionsItemSelected(item);
     }
 }
-class AsyncTaskClass extends AsyncTask<Void, Void, String> {
-    private WeakReference<TextView> textView;
-
-    AsyncTaskClass(TextView txtView) {
-        textView = new WeakReference<>(txtView);
-    }
-
-
-    @Override
-    protected String doInBackground(Void... voids) {
-        Random random = new Random();
-        int secTime = (random.nextInt(11)) * 300;
-        try {
-            Thread.sleep(secTime);
-        } catch (InterruptedException interruptedException) {
-            interruptedException.printStackTrace();
-        }
-        return "Awake from sleep after " + secTime + " milliSeconds.";
-    }
-
-    @Override
-    protected void onPostExecute(String result) {
-        textView.get().setText(result);
-    }
-}

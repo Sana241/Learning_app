@@ -21,7 +21,7 @@
         <item
             android:id="@+id/nav_cart"
             android:icon="@drawable/ic_nav_cart"
-            android:title="@string/nav_cart"
+            android:title="@string/nav_book_search"
             android:orderInCategory="20"/>
     </group>
     <item android:title="@string/communication_nav_section" android:orderInCategory="100">

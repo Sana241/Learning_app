@@ -59,4 +59,8 @@
     <string name="book_button_text">Search Books</string>
     <string name="input_hint">Book Title</string>
     <string name="no_results">Sorry, No Result Found</string>
+    <string name="no_search_string">Enter some text to search.</string>
+    <string name="loading_result">Loading...</string>
+    <string name="no_network_connection">Please Check Your Internet Connection and then Try Again.</string>
+    <string name="nav_book_search">Book Search</string>
 </resources>

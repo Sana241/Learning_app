@@ -62,11 +62,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
             case R.id.nav_cart:
                 getSupportFragmentManager().beginTransaction().setReorderingAllowed(true).
-                        replace(R.id.main_fragments_container, new CartFragment()).commit();
+                        replace(R.id.main_fragments_container, new BookSearchFragment()).commit();
                 break;
             case R.id.nav_favorite:
                 getSupportFragmentManager().beginTransaction().setReorderingAllowed(true).
-                        replace(R.id.main_fragments_container, new CartFragment()).commit();
+                        replace(R.id.main_fragments_container, new BookSearchFragment()).commit();
                 break;
             case R.id.nav_send:
                 Toast.makeText(this, "send", Toast.LENGTH_SHORT).show();
