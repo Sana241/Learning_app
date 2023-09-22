@@ -1,10 +1,13 @@
 package com.example.learningproject;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
+import androidx.loader.app.LoaderManager;
+import androidx.loader.content.Loader;
 
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -24,7 +27,8 @@ import android.widget.Toast;
 import java.lang.ref.WeakReference;
 import java.util.Random;
 
-public class SecondActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class SecondActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener,
+        LoaderManager.LoaderCallbacks<String> {
     private static final String TEXT_STATE = "froyo_text";
     Spinner spinner;
     private TextView textView, dountDescTextView, froyoDescTextView;
@@ -50,6 +54,12 @@ public class SecondActivity extends AppCompatActivity implements AdapterView.OnI
         }
         froyoDescTextView = findViewById(R.id.froyo_desc);
         buttonFragments = findViewById(R.id.fragments);
+
+        if (LoaderManager.getInstance(SecondActivity.this)
+                .getLoader(0) != null) {
+            LoaderManager.getInstance(SecondActivity.this)
+                    .initLoader(0, null, this);
+        }
 
         //Spinner
         spinner = findViewById(R.id.spinner);
@@ -80,9 +90,9 @@ public class SecondActivity extends AppCompatActivity implements AdapterView.OnI
                 int colorID = ContextCompat.getColor(SecondActivity.this, colorRes);
                 textView.setTextColor(colorID);
 
-
                 froyoDescTextView.setText(R.string.napping_text);
-                new AsyncTaskClass(froyoDescTextView).execute();
+                LoaderManager.getInstance(SecondActivity.this)
+                        .restartLoader(0, null, SecondActivity.this);
             }
         });
 
@@ -122,7 +132,7 @@ public class SecondActivity extends AppCompatActivity implements AdapterView.OnI
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putInt("color", textView.getCurrentTextColor());
-        outState.putString(TEXT_STATE,froyoDescTextView.getText().toString());
+        outState.putString(TEXT_STATE, froyoDescTextView.getText().toString());
     }
 
     public void getDount(View view) {
@@ -171,5 +181,21 @@ public class SecondActivity extends AppCompatActivity implements AdapterView.OnI
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @NonNull
+    @Override
+    public Loader<String> onCreateLoader(int id, @Nullable Bundle args) {
+        return new AsyncTextLoaderClass(this);
+    }
+
+    @Override
+    public void onLoadFinished(@NonNull Loader<String> loader, String data) {
+        froyoDescTextView.setText(data);
+    }
+
+    @Override
+    public void onLoaderReset(@NonNull Loader<String> loader) {
+
     }
 }
