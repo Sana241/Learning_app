@@ -66,4 +66,5 @@
     <string name="no_action_performed">No Action performed.</string>
     <string name="power_connected">Power Charger is Connected.</string>
     <string name="power_disconnected">Power charger is disconnected.</string>
+    <string name="custom_broadcast">Custom Broadcast Received.</string>
 </resources>

@@ -1,15 +1,18 @@
 package com.example.learningproject;
 
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Config;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,9 +27,12 @@ import java.util.Random;
 public class HomeFragment extends Fragment {
 
     private static final String LINKED_LIST = "linked_list";
+    private static final String ACTION_CUSTOM_BROADCAST =
+            BuildConfig.APPLICATION_ID + ".ACTION_CUSTOM_BROADCAST";
     public LinkedList<String> linkedList = new LinkedList<>();
     Button fragmentButton;
     RecyclerView recyclerView;
+    private CustomBroadcastReceiver receiver = new CustomBroadcastReceiver();
 
     public HomeFragment() {
     }
@@ -49,6 +55,12 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getActivity(), SecondActivity.class));
+
+                Intent customIntent = new Intent(ACTION_CUSTOM_BROADCAST);
+                LocalBroadcastManager.getInstance(requireContext())
+                        .registerReceiver(receiver, new IntentFilter(ACTION_CUSTOM_BROADCAST));
+                LocalBroadcastManager.getInstance(requireContext())
+                        .sendBroadcast(customIntent);
             }
         });
         int swipeDirections, dragDirections;
@@ -97,6 +109,13 @@ public class HomeFragment extends Fragment {
             HomeRecyclerAdapter.notifyDataSetChanged();
         }
         return view;
+    }
+
+    @Override
+    public void onDestroy() {
+        LocalBroadcastManager.getInstance(requireContext())
+                .unregisterReceiver(receiver);
+        super.onDestroy();
     }
 
     @Override

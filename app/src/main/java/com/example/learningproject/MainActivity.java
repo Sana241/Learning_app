@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -18,10 +19,8 @@ import com.google.android.material.navigation.NavigationView;
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     DrawerLayout drawerLayout;
     NavigationView navigationView;
-    private CustomBroadcastReceiver customBroadcastReceiver=
+    private CustomBroadcastReceiver receiver =
             new CustomBroadcastReceiver();
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,12 +46,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         IntentFilter intentFilter=new IntentFilter();
         intentFilter.addAction(Intent.ACTION_POWER_DISCONNECTED);
         intentFilter.addAction(Intent.ACTION_POWER_CONNECTED);
-        this.registerReceiver(customBroadcastReceiver,intentFilter);
+        this.registerReceiver(receiver,intentFilter);
+
     }
 
     @Override
     protected void onDestroy() {
-        this.unregisterReceiver(customBroadcastReceiver);
+        this.unregisterReceiver(receiver);
+        LocalBroadcastManager.getInstance(this)
+                .unregisterReceiver(receiver);
         super.onDestroy();
     }
 
