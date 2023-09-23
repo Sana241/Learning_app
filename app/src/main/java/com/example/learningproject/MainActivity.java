@@ -7,6 +7,8 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -16,6 +18,9 @@ import com.google.android.material.navigation.NavigationView;
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     DrawerLayout drawerLayout;
     NavigationView navigationView;
+    private CustomBroadcastReceiver customBroadcastReceiver=
+            new CustomBroadcastReceiver();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +43,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     replace(R.id.main_fragments_container, new HomeFragment()).commit();
             navigationView.setCheckedItem(R.id.nav_home);
         }
+
+        IntentFilter intentFilter=new IntentFilter();
+        intentFilter.addAction(Intent.ACTION_POWER_DISCONNECTED);
+        intentFilter.addAction(Intent.ACTION_POWER_CONNECTED);
+        this.registerReceiver(customBroadcastReceiver,intentFilter);
+    }
+
+    @Override
+    protected void onDestroy() {
+        this.unregisterReceiver(customBroadcastReceiver);
+        super.onDestroy();
     }
 
     @Override

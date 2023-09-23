@@ -19,7 +19,7 @@
     </string-array>
 
     <string name="fragment_btn_txt">Tabs Fragments</string>
-    <string name="home_fragment_txt">Welcome to Home Screen</string>
+    <string name="home_fragment_txt">Click Here!</string>
     <string name="Cart_fragment_txt">Add to Cart</string>
     <string name="nav_recyclerview">Recycler View</string>
     <string name="nav_score_team">ScoreKeeper</string>
@@ -63,4 +63,7 @@
     <string name="loading_result">Loading...</string>
     <string name="no_network_connection">Please Check Your Internet Connection and then Try Again.</string>
     <string name="nav_book_search">Book Search</string>
+    <string name="no_action_performed">No Action performed.</string>
+    <string name="power_connected">Power Charger is Connected.</string>
+    <string name="power_disconnected">Power charger is disconnected.</string>
 </resources>
