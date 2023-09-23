@@ -54,7 +54,6 @@ public class HomeFragment extends Fragment {
         fragmentButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getActivity(), SecondActivity.class));
 
                 Intent customIntent = new Intent(ACTION_CUSTOM_BROADCAST);
                 LocalBroadcastManager.getInstance(requireContext())

@@ -74,20 +74,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 getSupportFragmentManager().beginTransaction().setReorderingAllowed(true).
                         replace(R.id.main_fragments_container, new HomeFragment()).commit();
                 break;
-            case R.id.nav_profile:
+            case R.id.nav_scoreKeeper:
                 getSupportFragmentManager().beginTransaction().setReorderingAllowed(true).
                         replace(R.id.main_fragments_container, new ScoreKeeperFragment()).commit();
                 break;
-            case R.id.nav_cart:
+            case R.id.nav_search_book:
                 getSupportFragmentManager().beginTransaction().setReorderingAllowed(true).
                         replace(R.id.main_fragments_container, new BookSearchFragment()).commit();
                 break;
-            case R.id.nav_favorite:
-                getSupportFragmentManager().beginTransaction().setReorderingAllowed(true).
-                        replace(R.id.main_fragments_container, new BookSearchFragment()).commit();
+            case R.id.nav_others:
+                startActivity(new Intent(MainActivity.this, SecondActivity.class));
                 break;
-            case R.id.nav_send:
-                Toast.makeText(this, "send", Toast.LENGTH_SHORT).show();
+            case R.id.nav_settings:
+                Toast.makeText(this, "settings", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.nav_share:
                 Toast.makeText(this, "share", Toast.LENGTH_SHORT).show();
