@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="textview_style">
+        <item name="android:layout_margin">@dimen/Large_margin</item>
+        <item name="android:background">@color/teal_700</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:padding">@dimen/standard_padding</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Large</item>
+        <item name="android:textSize">@dimen/change_colortxt_size</item>
+        <item name="android:textStyle">bold|italic</item>
+    </style>
+
+    <style name="TeamTextStyle">
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Headline</item>
+        <item name="android:layout_margin">@dimen/standard_margin</item>
+        <item name="color">@color/teal_700</item>
+    </style>
+
+    <style name="TeamScoreButtons" parent="Widget.AppCompat.Button">
+        <item name="android:background">@drawable/button_background</item>
+    </style>
+
+    <style name="PlusBtnStyle" parent="TeamScoreButtons">
+        <item name="android:src">@drawable/ic_plus</item>
+        <item name="android:contentDescription">@string/plus_button_description</item>
+        <item name="android:layout_margin">@dimen/Large_margin</item>
+    </style>
+
+    <style name="MinusBtnStyle" parent="TeamScoreButtons">
+        <item name="android:src">@drawable/ic_minus</item>
+        <item name="android:contentDescription">@string/minus_button_description</item>
+        <item name="android:layout_margin">@dimen/Large_margin</item>
+    </style>
+
+</resources>
