@@ -8,8 +8,10 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 import androidx.loader.app.LoaderManager;
 import androidx.loader.content.Loader;
+import androidx.preference.PreferenceManager;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.ContextMenu;
@@ -30,6 +32,7 @@ import java.util.Random;
 public class SecondActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener,
         LoaderManager.LoaderCallbacks<String> {
     private static final String TEXT_STATE = "froyo_text";
+    private static final String KEY_PREF_EXAMPLE_SWITCH = "example_switch";
     Spinner spinner;
     private TextView textView, dountDescTextView, froyoDescTextView;
     private Button buttonChangeColor, buttonFragments;
@@ -98,6 +101,17 @@ public class SecondActivity extends AppCompatActivity implements AdapterView.OnI
 
         dountDescTextView = findViewById(R.id.dount_desc);
         registerForContextMenu(dountDescTextView);
+
+
+        PreferenceManager.setDefaultValues(this,
+                R.xml.prefernces, false);
+
+        SharedPreferences sharedPref =PreferenceManager
+                        .getDefaultSharedPreferences(this);
+
+        Boolean switchPref = sharedPref.getBoolean
+                (SecondActivity.KEY_PREF_EXAMPLE_SWITCH, false);
+       // Toast.makeText(this, switchPref.toString(),Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -172,6 +186,9 @@ public class SecondActivity extends AppCompatActivity implements AdapterView.OnI
                 break;
             case R.id.about:
                 Toast.makeText(this, "We are running Cafe", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.profile_setting:
+                startActivity(new Intent(SecondActivity.this, SettingActivity.class));
                 break;
             case android.R.id.home:
                 finish();
