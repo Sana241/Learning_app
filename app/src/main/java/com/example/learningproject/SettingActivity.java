@@ -17,4 +17,6 @@ public class SettingActivity extends AppCompatActivity {
                         new AppSettingFragment())
                 .commit();
     }
+
 }
+

@@ -36,7 +36,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/small_padding"
         android:padding="@dimen/min_padding"
-        android:text="@string/nav_header_emailtxt"
+        android:text="@string/nav_header_email_text"
         android:textColor="@color/white"
         android:textSize="@dimen/change_colortxt_size" />
 </LinearLayout>

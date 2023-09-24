@@ -19,16 +19,15 @@
     </string-array>
 
     <string name="fragment_btn_txt">Tabs Fragments</string>
-    <string name="home_fragment_txt">A Custom BroadCast</string>
+    <string name="home_fragment_txt">Send a Local BroadCast</string>
     <string name="Cart_fragment_txt">Add to Cart</string>
     <string name="nav_recyclerview">Recycler View</string>
     <string name="nav_score_team">ScoreKeeper</string>
-    <string name="nav_others">Others</string>
-    <string name="nav_cart">Cart</string>
+    <string name="nav_prev_main">Prev Main</string>
     <string name="communication_nav_section">Communication</string>
     <string name="nav_share">Share</string>
     <string name="nav_header_heading">Person Name</string>
-    <string name="nav_header_emailtxt">name123@gmail.com</string>
+    <string name="nav_header_email_text">name123@gmail.com</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">close navigation drawer</string>
 
@@ -48,14 +47,14 @@
     <string name="minus_button_description">minus button to decrease score</string>
     <string name="team_2">Team 2</string>
     <string name="team_1">Team 1</string>
-    <string name="napping_text">Napping...Sleeping...Asyn</string>
+    <string name="napping_text">Napping…Sleeping…Async Action</string>
 
     <string name="instructions">Enter a book name to find out who wrote the book. </string>
     <string name="book_button_text">Search Books</string>
     <string name="input_hint">Book Title</string>
     <string name="no_results">Sorry, No Result Found</string>
     <string name="no_search_string">Enter some text to search.</string>
-    <string name="loading_result">Loading...</string>
+    <string name="loading_result">Loading…</string>
     <string name="no_network_connection">Please Check Your Internet Connection and then Try Again.</string>
     <string name="nav_book_search">Book Search</string>
     <string name="no_action_performed">No Action performed.</string>
@@ -66,5 +65,22 @@
     <string name="switch_preference_title">Setting options</string>
     <string name="switch_preference_summary">Turn this option on or off.</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_settings_template">SettingsTemplateActivity</string>
+
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="account_privacy">Privacy</string>
+    <string name="account_private_title">Make your account private.</string>
 </resources>

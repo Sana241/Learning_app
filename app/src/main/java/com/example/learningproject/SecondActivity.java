@@ -111,7 +111,16 @@ public class SecondActivity extends AppCompatActivity implements AdapterView.OnI
 
         Boolean switchPref = sharedPref.getBoolean
                 (SecondActivity.KEY_PREF_EXAMPLE_SWITCH, false);
-       // Toast.makeText(this, switchPref.toString(),Toast.LENGTH_SHORT).show();
+
+        PreferenceManager.setDefaultValues(this,
+                R.xml.root_preferences, false);
+
+        SharedPreferences sharedPrefSetting =PreferenceManager
+                .getDefaultSharedPreferences(this);
+        Boolean switchPrefSetting = sharedPrefSetting.getBoolean
+                (SecondActivity.KEY_PREF_EXAMPLE_SWITCH, false);
+
+        // Toast.makeText(this, switchPref.toString(),Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -189,6 +198,9 @@ public class SecondActivity extends AppCompatActivity implements AdapterView.OnI
                 break;
             case R.id.profile_setting:
                 startActivity(new Intent(SecondActivity.this, SettingActivity.class));
+                break;
+            case R.id.manage_Account:
+                startActivity(new Intent(SecondActivity.this, SettingsTemplateActivity.class));
                 break;
             case android.R.id.home:
                 finish();

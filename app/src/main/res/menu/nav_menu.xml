@@ -16,7 +16,7 @@
         <item
             android:id="@+id/nav_others"
             android:icon="@drawable/ic_nav_others"
-            android:title="@string/nav_others"
+            android:title="@string/nav_prev_main"
             android:orderInCategory="25"/>
         <item
             android:id="@+id/nav_search_book"
